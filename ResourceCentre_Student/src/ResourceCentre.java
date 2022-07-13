@@ -10,7 +10,6 @@ public class ResourceCentre {
 		camcorderList.add(new Camcorder("CC002", "Panasonic HC-MDH2", 10));
 		chromebookList.add(new Chromebook("CB001", "ASUS Chromebook ", "Win 10"));
 		chromebookList.add(new Chromebook("CB002", "HP Chromebook", "Win 10"));
-		
 
 		int option = 0;
 
@@ -152,8 +151,7 @@ public class ResourceCentre {
 		for (int i = 0; i < chromebookList.size(); i++) {
 			Chromebook cb = chromebookList.get(i);
 			String rcA = ResourceCentre.showAvailability(cb.getIsAvailable());
-			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", cb.getAssetTag(), cb.getDescription(),
-					rcA, cb.getDueDate(), cb.getOs());
+			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", cb.getAssetTag(), cb.getDescription(), rcA, cb.getDueDate(), cb.getOs());
 		}
 		
 		return output;
