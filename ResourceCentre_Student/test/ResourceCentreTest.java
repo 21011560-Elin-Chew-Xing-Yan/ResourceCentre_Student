@@ -15,6 +15,7 @@ public class ResourceCentreTest {
 	private Chromebook cb2;
 	private Chromebook cb3;
 	
+	
 	private ArrayList<Camcorder> camcorderList;
 	private ArrayList<Chromebook> chromebookList;
 	
