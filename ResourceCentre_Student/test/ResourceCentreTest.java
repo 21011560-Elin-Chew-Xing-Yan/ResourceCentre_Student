@@ -222,6 +222,7 @@ public class ResourceCentreTest {
 		assertFalse("Test if non-existing chromebook CB0013 is returned - false?", isReturned);
 	}
 	
+	
 	@After
 	public void tearDown() throws Exception {
 		cc1 = null;
