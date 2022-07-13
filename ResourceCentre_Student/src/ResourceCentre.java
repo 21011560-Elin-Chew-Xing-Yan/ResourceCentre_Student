@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
 public class ResourceCentre {
-
+	
 	public static void main(String[] args) {
-
 		ArrayList<Camcorder> camcorderList = new ArrayList<Camcorder>();
 		ArrayList<Chromebook> chromebookList = new ArrayList<Chromebook>();
 
@@ -155,6 +154,7 @@ public class ResourceCentre {
 					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
 					chromebookList.get(i).getDueDate(),chromebookList.get(i).getOs());
 		}
+
 		return output;
 	}
 	public static void viewAllChromebook(ArrayList<Chromebook> chromebookList) {
@@ -182,12 +182,18 @@ public class ResourceCentre {
 	public static Chromebook inputChromebook() {	
 		Chromebook cb =null;
 		// write your code here
-
+		
+		String tag = Helper.readString("Enter asset tag > ");
+		String description = Helper.readString("Enter description > ");
+		String os = Helper.readString("Enter OS > ");
+		
+		cb = new Chromebook(tag, description, os);
 		return cb;
 		
 	}	
 	public static void addChromebook(ArrayList<Chromebook> chromebookList, Chromebook cb) {
 		// write your code here
+
 		chromebookList.add(cb);
 	}
 	
@@ -223,19 +229,20 @@ public class ResourceCentre {
 	
 	public static boolean doLoanChromebook(ArrayList<Chromebook> chromebookList, String tag, String dueDate) {
 		// write your code here
+		
 		boolean isLoaned = false;
-
+		
 		for (int i = 0; i < chromebookList.size(); i++) {
-			if (tag.equalsIgnoreCase(chromebookList.get(i).getAssetTag())
-					&& chromebookList.get(i).getIsAvailable() == true) {
+			Chromebook cb = chromebookList.get(i);
+			if (tag.equalsIgnoreCase(cb.getAssetTag()) && cb.getIsAvailable() == true) {
 				
-				chromebookList.get(i).setIsAvailable(false);
-				chromebookList.get(i).setDueDate(dueDate);
+				cb.setIsAvailable(false);
+				cb.setDueDate(dueDate);
 				
 				isLoaned = true;
-				
 			}
 		}
+		
 		return isLoaned;
 	}
 	public static void loanChromebook(ArrayList<Chromebook> chromebookList) {
@@ -247,10 +254,9 @@ public class ResourceCentre {
 		if (isLoaned == false) {
 			System.out.println("Invalid asset tag");
 		} else {
-			System.out.println("Camcorder " + tag + " loaned out");
-		}
-		
-		
+
+			System.out.println("Chromebook " + tag + " loaned out");
+		}	
 	}
 	
 	//================================= Option 4 Return an item (CRUD - Update)=================================
@@ -285,6 +291,7 @@ public class ResourceCentre {
 		boolean isReturned = false;
 		// write your code here
 		for (int i = 0; i < chromebookList.size(); i++) {
+
 			if (tag.equalsIgnoreCase(chromebookList.get(i).getAssetTag())
 					&& chromebookList.get(i).getIsAvailable() == false) {
 				chromebookList.get(i).setIsAvailable(true);
@@ -293,6 +300,7 @@ public class ResourceCentre {
 				
 			}
 		}
+	
 		return isReturned;
 	}
 	public static void returnChromebook(ArrayList<Chromebook> chromebookList) {

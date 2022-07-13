@@ -73,6 +73,7 @@ public class ResourceCentreTest {
 		//Add another item. test The size of the list is 2?
 		ResourceCentre.addChromebook(chromebookList, cb2);
 		ResourceCentre.addChromebook(chromebookList, cb3);
+
 		assertEquals("Test that Chromebook arraylist size is 3?", 3, chromebookList.size());
 		assertSame("Test that Chromebook is added same as 3rd item of the list?", cb3, chromebookList.get(2));
 	}
@@ -206,8 +207,8 @@ public class ResourceCentreTest {
 		//error
 		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0013");
 		assertFalse("Test if non-existing camcorder CC0013 is returned - false?", isReturned);
-		
 	}
+	
 	@Test
 	public void testDoReturnChromebook() {
 		//fail("Not yet implemented");
